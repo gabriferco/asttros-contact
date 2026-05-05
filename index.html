@@ -11,8 +11,8 @@
       --yellow: #f5e642;
       --dark: #0a0805;
       --text: #f0ece4;
-      --text-dim: rgba(240,236,228,0.5);
-      --text-dimmer: rgba(240,236,228,0.28);
+      --text-dim: rgba(240,236,228,0.75);
+      --text-dimmer: rgba(240,236,228,0.5);
       --border: rgba(240,236,228,0.12);
       --field-bg: rgba(255,255,255,0.07);
     }
@@ -32,7 +32,7 @@
     .hero {
       position: relative;
       width: 100%;
-      min-height: 100vh;
+      min-height: 100svh;
       display: flex;
       flex-direction: column;
       justify-content: space-between;
@@ -116,7 +116,7 @@
 
     .hero-title {
       font-family: 'Outfit', sans-serif;
-      font-size: clamp(2.5rem, 6vw, 4.2rem);
+      font-size: clamp(2rem, 6vw, 4.2rem);
       font-weight: 700;
       line-height: 1.0;
       letter-spacing: -0.01em;
@@ -286,7 +286,7 @@
       width: 100%;
       background: var(--field-bg);
       border: 1px solid var(--border);
-      color: var(--text);
+      color: rgba(240,236,228,0.9);
       font-family: 'DM Sans', sans-serif;
       font-size: 13.5px;
       font-weight: 300;
@@ -297,7 +297,7 @@
       -webkit-appearance: none;
     }
 
-    .form-input::placeholder { color: rgba(240,236,228,0.18); font-style: italic; }
+    .form-input::placeholder { color: rgba(240,236,228,0.45); font-style: italic; }
     .form-input:focus { border-color: var(--yellow); background: rgba(255,255,255,0.1); }
 
     .form-textarea {
@@ -317,7 +317,7 @@
       line-height: 1.6;
     }
 
-    .form-textarea::placeholder { color: rgba(240,236,228,0.18); font-style: italic; }
+    .form-textarea::placeholder { color: rgba(240,236,228,0.45); font-style: italic; }
     .form-textarea:focus { border-color: var(--yellow); background: rgba(255,255,255,0.1); }
 
     .form-row {
@@ -335,7 +335,7 @@
     .opt-btn {
       border: 1px solid var(--border);
       background: var(--field-bg);
-      color: var(--text-dim);
+      color: rgba(240,236,228,0.85);
       font-family: 'DM Sans', sans-serif;
       font-size: 12px;
       font-weight: 300;
@@ -358,7 +358,7 @@
     .budget-btn {
       border: 1px solid var(--border);
       background: var(--field-bg);
-      color: var(--text-dim);
+      color: rgba(240,236,228,0.85);
       font-family: 'DM Sans', sans-serif;
       font-size: 12px;
       font-weight: 300;
@@ -381,7 +381,7 @@
     .source-btn {
       border: 1px solid var(--border);
       background: var(--field-bg);
-      color: var(--text-dim);
+      color: rgba(240,236,228,0.85);
       font-family: 'DM Sans', sans-serif;
       font-size: 12px;
       font-weight: 300;
@@ -466,6 +466,8 @@
 
     /* ── RESPONSIVE ── */
     @media (max-width: 580px) {
+      .hero { justify-content: space-between; }
+      .hero-bottom { padding-bottom: 5rem !important; }
       .hero-bottom { grid-template-columns: 1fr; }
       .polaroid-wrap { display: none; }
       .form-row { grid-template-columns: 1fr; }
@@ -516,7 +518,7 @@
     <div class="about">
       <div class="about-text">
         <strong>Two brothers behind the camera.</strong>
-        Cinema has always been our meeting point. We grew up creating stories with whatever we had — a VHS camera, a cassette recorder, paper, paints, our imagination. Today we bring that same instinct to every wedding: a wedding doc that captures your day honestly, poetically, and entirely as it felt.
+        Cinema has always been our meeting point. We grew up creating stories with whatever we had a VHS camera, a cassette recorder, paper, paints, our imagination. Today we bring that same instinct to every wedding: a wedding doc that captures your day honestly, poetically, and entirely as it felt.
       </div>
     </div>
 
@@ -624,3 +626,18 @@
 
 </body>
 </html>
+<style>
+@media (max-width: 580px) {
+      .hero { justify-content: space-between; }
+      .hero-bottom { padding-bottom: 5rem !important; }
+  .hero-bottom {
+    padding-bottom: 2rem !important;
+  }
+  .hero {
+    min-height: 100svh;
+  }
+  .inquire-link {
+    margin-top: 1rem !important;
+  }
+}
+</style>
