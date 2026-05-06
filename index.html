@@ -563,8 +563,18 @@
         <input class="form-input" type="text" name="date" placeholder="Day · Month · Year" required>
       </div>
       <div class="form-group">
-        <label class="form-label">Location <sup>*</sup></label>
-        <input class="form-input" type="text" name="location" placeholder="Country, venue or city" required>
+        <label class="form-label">Venue &amp; city <sup>*</sup></label>
+        <input class="form-input" type="text" name="location" placeholder="Venue name, city" required>
+      </div>
+    </div>
+
+
+    <div class="form-group">
+      <label class="form-label">Type of ceremony <sup>*</sup></label>
+      <div class="options-grid" style="grid-template-columns: 1fr 1fr 1fr;">
+        <button type="button" class="opt-btn" onclick="selectOne(this, 'ceremony-grid')">Civil</button>
+        <button type="button" class="opt-btn" onclick="selectOne(this, 'ceremony-grid')">Religious</button>
+        <button type="button" class="opt-btn" onclick="selectOne(this, 'ceremony-grid')">Other</button>
       </div>
     </div>
 
