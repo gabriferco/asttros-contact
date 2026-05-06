@@ -11,7 +11,7 @@
   <style>
     @font-face {
     font-family: 'Altone';
-    src: url('Altone_Trial-Bold.ttf') format('truetype');
+    src: url('Altone-Bold.ttf') format('truetype');
     font-weight: 700;
     font-style: normal;
   }
@@ -624,16 +624,19 @@
       </div>
     </div>
 
-    </form>
     <div class="form-group" style="margin-top:1.5rem">
       <label style="display:flex; align-items:flex-start; gap:0.75rem; cursor:pointer; font-size:12px; font-weight:300; color:rgba(240,236,228,0.6); line-height:1.6;">
         <input type="checkbox" name="gdpr" required style="margin-top:3px; flex-shrink:0; accent-color:#f5e642; width:15px; height:15px;">
         <span>I agree that my personal data will be used solely to respond to this enquiry and will not be shared with third parties.</span>
       </label>
     </div>
+
     <div class="form-divider"></div>
 
     <button type="submit" class="submit-btn" id="submit-btn">Send enquiry →</button>
+    <div class="success-msg" id="success-msg" style="display:none; text-align:center; padding:2rem; font-family:'DM Sans',sans-serif; font-size:14px; color:#f5e642; letter-spacing:0.08em; line-height:1.8;">Thank you. We'll be in touch within 48h.<br>— asttros</div>
+
+    </form>
 
     <p class="footer-note">
       We'll get back to you within 48h &nbsp;·&nbsp;
