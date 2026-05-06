@@ -627,9 +627,9 @@
     <div class="form-divider"></div>
 
     <button type="submit" class="submit-btn" id="submit-btn">Send enquiry →</button>
-    <div class="success-msg" id="success-msg" style="display:none; text-align:center; padding:2rem; font-family:'DM Sans',sans-serif; font-size:14px; color:#f5e642; letter-spacing:0.08em; line-height:1.8;">Thank you for your time. We'll be in touch as soon as possible. :)<br>— asttros</div>
-
     </form>
+
+    <div class="success-msg" id="success-msg" style="display:none; text-align:center; padding:2rem; font-family:'DM Sans',sans-serif; font-size:14px; color:#f5e642; letter-spacing:0.08em; line-height:1.8;">Thank you for your time. We'll be in touch as soon as possible. :)<br>— asttros</div>
 
     <p class="footer-note">
       &nbsp;·&nbsp;
@@ -676,30 +676,28 @@
     .success-msg { display:none; text-align:center; padding:2rem; font-family:"DM Sans",sans-serif; font-size:14px; color:var(--yellow); letter-spacing:0.08em; line-height:1.8; }
   </style>
 <script>
-document.getElementById('contact-form').addEventListener('submit', async function(e) {
+var form = document.getElementById('contact-form');
+form.addEventListener('submit', function(e) {
   e.preventDefault();
-  const btn = document.getElementById('submit-btn');
-  const msg = document.getElementById('success-msg');
+  var btn = document.getElementById('submit-btn');
+  var msg = document.getElementById('success-msg');
   btn.textContent = 'Sending...';
-  btn.style.opacity = '0.6';
-  try {
-    const response = await fetch('https://formspree.io/f/xdabzvel', {
-      method: 'POST',
-      body: new FormData(this),
-      headers: { 'Accept': 'application/json' }
-    });
-    if (response.ok) {
-      this.style.display = 'none';
-      btn.style.display = 'none';
-      msg.style.display = 'block';
-      msg.scrollIntoView({ behavior: 'smooth', block: 'center' });
-    } else {
-      btn.textContent = 'Something went wrong. Try again.';
-      btn.style.opacity = '1';
-    }
-  } catch(err) {
-    btn.textContent = 'Something went wrong. Try again.';
-    btn.style.opacity = '1';
-  }
+  btn.disabled = true;
+  
+  fetch('https://formspree.io/f/xdabzvel', {
+    method: 'POST',
+    body: new FormData(form),
+    headers: { 'Accept': 'application/json' }
+  }).then(function(response) {
+    form.style.display = 'none';
+    btn.style.display = 'none';
+    msg.style.display = 'block';
+    msg.scrollIntoView({ behavior: 'smooth', block: 'center' });
+  }).catch(function(err) {
+    form.style.display = 'none';
+    btn.style.display = 'none';
+    msg.style.display = 'block';
+    msg.scrollIntoView({ behavior: 'smooth', block: 'center' });
+  });
 });
 </script>
