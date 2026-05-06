@@ -175,6 +175,9 @@
     }
 
     .polaroid {
+      background: transparent;
+      padding: 0;
+      box-shadow: none;
       background: #fff;
       padding: 8px 8px 28px;
       box-shadow: 0 10px 40px rgba(0,0,0,0.55);
@@ -182,16 +185,17 @@
     }
 
     .polaroid img {
-      filter: sepia(0.2) saturate(0.82) brightness(0.9) contrast(0.95);
+      
       width: 100%;
-      aspect-ratio: 3/4;
-      object-fit: cover;
-      object-position: center top;
+      
+      
+      
       display: block;
       background: #333;
     }
 
     .polaroid-name {
+      display: none;
       text-align: center;
       font-family: 'Dancing Script', cursive;
       font-size: 13px;
