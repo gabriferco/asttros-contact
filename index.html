@@ -571,10 +571,10 @@
 
     <div class="form-group">
       <label class="form-label">Type of ceremony <sup>*</sup></label>
-      <div class="options-grid" style="grid-template-columns: 1fr 1fr 1fr;">
-        <button type="button" class="opt-btn" onclick="selectOne(this, 'ceremony-grid')">Civil</button>
-        <button type="button" class="opt-btn" onclick="selectOne(this, 'ceremony-grid')">Religious</button>
-        <button type="button" class="opt-btn" onclick="selectOne(this, 'ceremony-grid')">Other</button>
+      <div class="ceremony-grid" style="grid-template-columns: 1fr 1fr 1fr;">
+        <button type="button" class="opt-btn" onclick="selectOne(this)">Civil</button>
+        <button type="button" class="opt-btn" onclick="selectOne(this)">Religious</button>
+        <button type="button" class="opt-btn" onclick="selectOne(this)">Other</button>
       </div>
     </div>
 
@@ -586,20 +586,20 @@
     <div class="form-group">
       <label class="form-label">What are you looking for? <sup>*</sup></label>
       <div class="options-grid">
-        <button type="button" class="opt-btn" onclick="toggle(this)">Film only</button>
-        <button type="button" class="opt-btn" onclick="toggle(this)">Film + Photography</button>
-        <button type="button" class="opt-btn" onclick="toggle(this)">Photography only</button>
-        <button type="button" class="opt-btn" onclick="toggle(this)">Not sure yet</button>
+        <button type="button" class="opt-btn" onclick="selectOne(this)">Film only</button>
+        <button type="button" class="opt-btn" onclick="selectOne(this)">Film + Photography</button>
+        <button type="button" class="opt-btn" onclick="selectOne(this)">Photography only</button>
+        <button type="button" class="opt-btn" onclick="selectOne(this)">Not sure yet</button>
       </div>
     </div>
 
     <div class="form-group">
       <label class="form-label">Film budget <sup>*</sup></label>
       <div class="budget-grid">
-        <button type="button" class="budget-btn" onclick="selectOne(this, 'budget-grid')">€5,000 – €7,000</button>
-        <button type="button" class="budget-btn" onclick="selectOne(this, 'budget-grid')">€7,000 – €10,000</button>
-        <button type="button" class="budget-btn" onclick="selectOne(this, 'budget-grid')">€10,000 – €15,000</button>
-        <button type="button" class="budget-btn" onclick="selectOne(this, 'budget-grid')">€15,000+</button>
+        <button type="button" class="budget-btn" onclick="selectOne(this)">€5,000 – €7,000</button>
+        <button type="button" class="budget-btn" onclick="selectOne(this)">€7,000 – €10,000</button>
+        <button type="button" class="budget-btn" onclick="selectOne(this)">€10,000 – €15,000</button>
+        <button type="button" class="budget-btn" onclick="selectOne(this)">€15,000+</button>
       </div>
     </div>
 
@@ -616,10 +616,10 @@
     <div class="form-group">
       <label class="form-label">How did you find us?</label>
       <div class="source-grid">
-        <button type="button" class="source-btn" onclick="selectOne(this, 'source-grid')">Instagram</button>
-        <button type="button" class="source-btn" onclick="selectOne(this, 'source-grid')">A vendor or planner</button>
-        <button type="button" class="source-btn" onclick="selectOne(this, 'source-grid')">A friend</button>
-        <button type="button" class="source-btn" onclick="selectOne(this, 'source-grid')">Google</button>
+        <button type="button" class="source-btn" onclick="selectOne(this)">Instagram</button>
+        <button type="button" class="source-btn" onclick="selectOne(this)">A vendor or planner</button>
+        <button type="button" class="source-btn" onclick="selectOne(this)">A friend</button>
+        <button type="button" class="source-btn" onclick="selectOne(this)">Google</button>
       </div>
     </div>
 
@@ -653,8 +653,8 @@
 
 <script>
   function toggle(btn) { btn.classList.toggle('on'); }
-  function selectOne(btn, cls) {
-    btn.closest('.' + cls).querySelectorAll('button').forEach(b => b.classList.remove('on'));
+  function selectOne(btn) {
+    btn.parentElement.querySelectorAll('button').forEach(b => b.classList.remove('on'));
     btn.classList.add('on');
   }
 </script>
