@@ -565,11 +565,12 @@
     <div class="form-row">
       <div class="form-group">
         <label class="form-label">Type of ceremony <sup>*</sup></label>
-        <div class="ceremony-grid" style="grid-template-columns: 1fr 1fr 1fr;">
-          <button type="button" class="opt-btn" onclick="selectOne(this)">Civil</button>
-          <button type="button" class="opt-btn" onclick="selectOne(this)">Religious</button>
-          <button type="button" class="opt-btn" onclick="selectOne(this)">Other</button>
+        <div class="ceremony-grid" style="grid-template-columns: 1fr 1fr 1fr;" id="ceremony-grid">
+          <button type="button" class="opt-btn" onclick="selectOne(this,'ceremony')">Civil</button>
+          <button type="button" class="opt-btn" onclick="selectOne(this,'ceremony')">Religious</button>
+          <button type="button" class="opt-btn" onclick="selectOne(this,'ceremony')">Other</button>
         </div>
+        <input type="hidden" name="ceremony" id="ceremony" value="">
       </div>
       <div class="form-group">
         <label class="form-label">Where are you writing from?</label>
@@ -579,22 +580,24 @@
 
     <div class="form-group">
       <label class="form-label">What are you looking for? <sup>*</sup></label>
-      <div class="options-grid">
-        <button type="button" class="opt-btn" onclick="selectOne(this)">Film only</button>
-        <button type="button" class="opt-btn" onclick="selectOne(this)">Film + Photography</button>
-        <button type="button" class="opt-btn" onclick="selectOne(this)">Photography only</button>
-        <button type="button" class="opt-btn" onclick="selectOne(this)">Not sure yet</button>
+      <div class="options-grid" id="service-grid">
+        <button type="button" class="opt-btn" onclick="selectOne(this,'service')">Film only</button>
+        <button type="button" class="opt-btn" onclick="selectOne(this,'service')">Film + Photography</button>
+        <button type="button" class="opt-btn" onclick="selectOne(this,'service')">Photography only</button>
+        <button type="button" class="opt-btn" onclick="selectOne(this,'service')">Not sure yet</button>
       </div>
+      <input type="hidden" name="service" id="service" value="">
     </div>
 
     <div class="form-group">
       <label class="form-label">Film budget <sup>*</sup></label>
-      <div class="budget-grid">
-        <button type="button" class="budget-btn" onclick="selectOne(this)">€5,000 – €7,000</button>
-        <button type="button" class="budget-btn" onclick="selectOne(this)">€7,000 – €10,000</button>
-        <button type="button" class="budget-btn" onclick="selectOne(this)">€10,000 – €15,000</button>
-        <button type="button" class="budget-btn" onclick="selectOne(this)">€15,000+</button>
+      <div class="budget-grid" id="budget-grid">
+        <button type="button" class="budget-btn" onclick="selectOne(this,'budget')">€5,000 – €7,000</button>
+        <button type="button" class="budget-btn" onclick="selectOne(this,'budget')">€7,000 – €10,000</button>
+        <button type="button" class="budget-btn" onclick="selectOne(this,'budget')">€10,000 – €15,000</button>
+        <button type="button" class="budget-btn" onclick="selectOne(this,'budget')">€15,000+</button>
       </div>
+      <input type="hidden" name="budget" id="budget" value="">
     </div>
 
     <div class="form-group">
@@ -609,12 +612,13 @@
 
     <div class="form-group">
       <label class="form-label">How did you find us?</label>
-      <div class="source-grid">
-        <button type="button" class="source-btn" onclick="selectOne(this)">Instagram</button>
-        <button type="button" class="source-btn" onclick="selectOne(this)">A vendor or planner</button>
-        <button type="button" class="source-btn" onclick="selectOne(this)">A friend</button>
-        <button type="button" class="source-btn" onclick="selectOne(this)">Google</button>
+      <div class="source-grid" id="source-grid">
+        <button type="button" class="source-btn" onclick="selectOne(this,'source')">Instagram</button>
+        <button type="button" class="source-btn" onclick="selectOne(this,'source')">A vendor or planner</button>
+        <button type="button" class="source-btn" onclick="selectOne(this,'source')">A friend</button>
+        <button type="button" class="source-btn" onclick="selectOne(this,'source')">Google</button>
       </div>
+      <input type="hidden" name="source" id="source" value="">
     </div>
 
     <div class="form-group" style="margin-top:1.5rem">
@@ -650,9 +654,12 @@
 
 <script>
   function toggle(btn) { btn.classList.toggle('on'); }
-  function selectOne(btn) {
+  function selectOne(btn, fieldId) {
     btn.parentElement.querySelectorAll('button').forEach(b => b.classList.remove('on'));
     btn.classList.add('on');
+    if (fieldId) {
+      document.getElementById(fieldId).value = btn.textContent.trim();
+    }
   }
 </script>
 
